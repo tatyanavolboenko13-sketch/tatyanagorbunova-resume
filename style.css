@@ -118,6 +118,7 @@ body {
 .skill-category h3 {
     color: #764ba2;
     margin-bottom: 10px;
+    font-size: 1.1em;
 }
 
 .skill-category ul {
@@ -186,6 +187,11 @@ body {
     border-radius: 10px;
 }
 
+.education-item h3, .experience-item h3 {
+    color: #667eea;
+    margin-bottom: 8px;
+}
+
 .edu-period {
     color: #764ba2;
     font-weight: 600;
@@ -195,7 +201,51 @@ body {
 .edu-note {
     font-style: italic;
     color: #666;
-    margin-top: 5px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed #ddd;
+}
+
+.experience-item ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.experience-item li {
+    margin-bottom: 5px;
+}
+
+/* Courses List (NEW) */
+.courses-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.course-item {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+    transition: all 0.3s;
+}
+
+.course-item:hover {
+    background: #e9ecef;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.course-item h4 {
+    color: #764ba2;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.course-item p {
+    color: #555;
+    font-size: 0.95em;
+    line-height: 1.5;
 }
 
 /* Footer */
@@ -204,6 +254,10 @@ body {
     color: white;
     text-align: center;
     padding: 20px;
+}
+
+.footer p {
+    margin: 5px 0;
 }
 
 /* Responsive */
@@ -224,6 +278,14 @@ body {
     .skills-grid {
         grid-template-columns: 1fr;
     }
+    
+    .courses-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .section h2 {
+        font-size: 1.5em;
+    }
 }
 
 /* Print styles */
@@ -235,9 +297,46 @@ body {
     
     .container {
         box-shadow: none;
+        max-width: 100%;
+    }
+    
+    .header {
+        background: #667eea !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
     }
     
     .social-links a {
         border: 1px solid #333;
     }
+    
+    .section {
+        break-inside: avoid;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Links */
+a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
